@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public Camera maincamera;
     bool isDead = false;
     public GameObject deathScreen;
+    private float score;
+    [SerializeField] TextMeshProUGUI scoreText;
 
     public bool IsDead
     {
@@ -22,10 +25,6 @@ public class PlayerMovement : MonoBehaviour
             isDead = value;
             deathScreen.SetActive(value);
             Time.timeScale = value ? 0 : 1;
-
-
-
-
         }
     }
 
@@ -39,17 +38,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= maincamera.transform.position.y - 5f)
+        if (transform.position.y <= maincamera.transform.position.y - 5f && !isDead)
         {
             Death();
         }
         movement = Input.GetAxis("Horizontal") * movementSpeed;
-        if (transform.position.x <= -4f)
-            transform.position = new Vector3(transform.position.x + 9, transform.position.y, transform.position.z);
+        if (transform.position.x <= -6f)
+            transform.position = new Vector3(transform.position.x + 13, transform.position.y, transform.position.z);
 
-        if (transform.position.x >= 4f)
-            transform.position = new Vector3(transform.position.x - 9, transform.position.y, transform.position.z);
-        
+        if (transform.position.x >= 6f)
+            transform.position = new Vector3(transform.position.x - 13, transform.position.y, transform.position.z);
+        scoring();
     }
 
     private void FixedUpdate()
@@ -63,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     public void Death()
     {
         Debug.LogError("You are dead");
-        IsDead = !IsDead;
+        IsDead = true;
         //if (IsDead == !IsDead)
         //{
         //    Time.timeScale = 0;
@@ -72,4 +71,20 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    void scoring()
+    {
+        if(transform.position.y > score)
+        {
+            score = transform.position.y;
+            scoreText.text = score.ToString("F0");
+        }
+        
+
+
+    
+    }
+
+
+
 }

@@ -25,6 +25,7 @@ public class MenuHandler : MonoBehaviour
     public void loadGame(int scene)
     {
         SceneManager.LoadScene(scene);
+        Time.timeScale = 1;
     }
 
 
