@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Jumping : MonoBehaviour
 {
     public float jumpheight = 10f;
+
+
+    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.relativeVelocity.y <= 0)
@@ -15,7 +20,7 @@ public class Jumping : MonoBehaviour
                 Vector2 velocity = rb2D.velocity;
                 velocity.y = jumpheight;
                 rb2D.velocity = velocity;
-
+          
             }
         }
 

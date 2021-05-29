@@ -14,13 +14,13 @@ public class SpawnGenerator : MonoBehaviour
     void Start()
     {
         Vector3 spawnPosition = new Vector3();
-
         for (int i = 0; i < NumberOfPlatforms; i++)
         {
             spawnPosition.y += Random.Range(minY, maxY);
             spawnPosition.x = Random.Range(-levelWidth, levelWidth);
             Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
         }
+        
     }
 
     // Update is called once per frame
