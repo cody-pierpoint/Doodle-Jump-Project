@@ -12,14 +12,25 @@ public class PlayerMovement : MonoBehaviour
     public Camera maincamera;
     bool isDead = false;
     public GameObject deathScreen;
-    private float score;
+    [HideInInspector]public float score;
     [SerializeField] TextMeshProUGUI scoretext;
     [SerializeField] public Animator LeftRight;
     [SerializeField] public Animator flip;
+    [SerializeField] private TextMeshProUGUI highScoreText;
     public float jumpheight = 10f;
     public AudioSource Bounce;
     public AudioSource GameMusic;
     public AudioSource DeathAudio;
+    private float highScore;
+    public float HighScore
+    {
+        get { return highScore; }
+        set
+        {
+            highScore = value;
+            highScoreText.text = highScore.ToString("N0");
+        }
+    }
    // public static PlayerMovement instance;
 
     public bool IsDead
@@ -47,16 +58,21 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        maincamera = Camera.main;
         deathScreen.SetActive(false);
         rb2d = GetComponent<Rigidbody2D>();
         GameMusic.Play();
+        Load();
     }
 
+    private void OnDestroy()
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(movement);
+        //Debug.Log(movement);
         if (transform.position.y <= maincamera.transform.position.y - 5f && !isDead)
         {
             Death();
@@ -84,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.x >= 4f)
             transform.position = new Vector3(transform.position.x - 9, transform.position.y, transform.position.z);
-        scoring();
+        Scoring();
     }
 
     private void FixedUpdate()
@@ -99,8 +115,10 @@ public class PlayerMovement : MonoBehaviour
     public void Death()
     {
         GameMusic.Stop();
-        Debug.LogError("You are dead");
+        Debug.Log("You are dead");
         IsDead = true;
+        if (score >= HighScore)
+            Save();
         DeathAudio.Play();
         //if (IsDead == !IsDead)
         //{
@@ -111,12 +129,16 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void scoring()
+    void Scoring()
     {
         if (transform.position.y > score)
         {
             score = transform.position.y;
-            scoretext.text = score.ToString("F0");
+            scoretext.text = score.ToString("N0");
+            if (score > HighScore)
+            {
+                HighScore = score;
+            }
         }
             
 
@@ -163,14 +185,17 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void save()
+    public void Save()
     {
-
+        SaveSystem.SavePlayer(this);
 
     }
 
-   public void load()
+   public void Load()
     {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+            HighScore = data.Scores;
 
     }
 }
