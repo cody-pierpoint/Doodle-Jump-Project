@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpheight: 10
-  LeftRight: {fileID: 0}
+  doodleCharacter: {fileID: 3365061137152387647, guid: 6a1000b1b96c75f46b90d5b51409a076, type: 3}
+  flip: {fileID: 0}
 --- !u!251 &-8098932698746504760
 PlatformEffector2D:
   m_ObjectHideFlags: 0

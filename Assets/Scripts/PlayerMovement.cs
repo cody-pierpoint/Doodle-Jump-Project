@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Animations;
+using UnityEngine.Audio;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,9 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject deathScreen;
     private float score;
     [SerializeField] TextMeshProUGUI scoretext;
-    [SerializeField] private Animator LeftRight;
-    [SerializeField] private Animator flip;
-
+    [SerializeField] public Animator LeftRight;
+    [SerializeField] public Animator flip;
+    public float jumpheight = 10f;
+    public AudioSource Bounce;
+    public AudioSource GameMusic;
+    public AudioSource DeathAudio;
+   // public static PlayerMovement instance;
 
     public bool IsDead
     {
@@ -30,17 +34,23 @@ public class PlayerMovement : MonoBehaviour
             deathScreen.SetActive(value);
             Time.timeScale = value ? 0 : 1;
 
-
-
-
         }
     }
+    //void Awake()
+    //{
+    //    if (instance != null)
+    //        Debug.LogError("More then one instance of playermovement in scene");
+
+    //    instance = this;
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
+        
         deathScreen.SetActive(false);
         rb2d = GetComponent<Rigidbody2D>();
+        GameMusic.Play();
     }
 
     // Update is called once per frame
@@ -88,8 +98,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Death()
     {
+        GameMusic.Stop();
         Debug.LogError("You are dead");
         IsDead = true;
+        DeathAudio.Play();
         //if (IsDead == !IsDead)
         //{
         //    Time.timeScale = 0;
@@ -118,7 +130,47 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
- 
-    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
 
+        if (collision.relativeVelocity.y <= 0)
+        {
+            Bounce.Play();
+            LeftRight.SetTrigger("Jumped");
+
+            //    Rigidbody2D rb2D = collision.collider.GetComponent<Rigidbody2D>();
+            //    if (rb2D != null)
+            //    {
+            //        Vector2 velocity = rb2D.velocity;
+            //        velocity.y = jumpheight;
+            //        rb2D.velocity = velocity;
+            //        if (transform.rotation.y < 180f)
+            //        {
+
+            //            flip.SetTrigger("JumpedBack");
+            //        }
+            //        else
+            //        {
+            //            flip.SetTrigger("Jumped");
+            //        }
+
+
+            //    }
+
+        }
+
+
+
+    }
+
+    public void save()
+    {
+
+
+    }
+
+   public void load()
+    {
+
+    }
 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7021147332055616676}
   - component: {fileID: 7021147332055616675}
   - component: {fileID: 7021147332055616674}
-  - component: {fileID: 7021147332055616677}
   - component: {fileID: 2448833741493741040}
   - component: {fileID: 4876320544787239109}
+  - component: {fileID: -1174964061618595327}
   m_Layer: 0
   m_Name: Platform (2)
   m_TagString: Platform
@@ -102,26 +102,12 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.45806828, y: 0.12522745}
-  - {x: 0.5426069, y: 0.1252275}
+  - {x: -0.38850948, y: 0.1342442}
+  - {x: 0.39576057, y: 0.12651567}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &7021147332055616677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7021147332055616673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9322be6c9c049b4198dc1d91c2cfecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpheight: 10
-  LeftRight: {fileID: 4876320544787239109}
 --- !u!251 &2448833741493741040
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -160,3 +146,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1174964061618595327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021147332055616673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9322be6c9c049b4198dc1d91c2cfecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpheight: 10
+  doodleCharacter: {fileID: 3365061137152387647, guid: 6a1000b1b96c75f46b90d5b51409a076, type: 3}
+  flip: {fileID: 0}
