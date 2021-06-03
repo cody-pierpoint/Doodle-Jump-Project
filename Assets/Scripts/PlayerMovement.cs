@@ -65,10 +65,6 @@ public class PlayerMovement : MonoBehaviour
         Load();
     }
 
-    private void OnDestroy()
-    {
-
-    }
     // Update is called once per frame
     void Update()
     {
@@ -114,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Death()
     {
-        GameMusic.Stop();
+        //GameMusic.Stop();
         Debug.Log("You are dead");
         IsDead = true;
         if (score >= HighScore)
