@@ -8,6 +8,7 @@ public class Jumping : MonoBehaviour
     public float jumpheight = 10f;
     [SerializeField] private GameObject doodleCharacter;
     private float doodleRot;
+    public AudioSource Bounce;
 
     [SerializeField] Animator LeftRight;
 
@@ -21,6 +22,7 @@ public class Jumping : MonoBehaviour
         if (player != null)
         {
             LeftRight = player.GetComponent<Animator>();
+            Bounce = player.GetComponent<AudioSource>();
         }
         else
         {
@@ -40,8 +42,17 @@ public class Jumping : MonoBehaviour
                 Vector2 velocity = rb2D.velocity;
                 velocity.y = jumpheight;
                 rb2D.velocity = velocity;
-
+                Bounce.Play();
                 LeftRight.SetTrigger("Jumped");
+                if (doodleCharacter.transform.rotation.y < 180f)
+                {
+
+                    LeftRight.SetTrigger("JumpedBack");
+                }
+                
+                
+               
+                
                 //if (doodleCharacter.transform.rotation.y < 180f)
                 //{
 

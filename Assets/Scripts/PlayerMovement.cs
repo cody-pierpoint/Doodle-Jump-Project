@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
     public float jumpheight = 10f;
     public AudioSource Bounce;
-    public AudioSource GameMusic;
+    
     public AudioSource DeathAudio;
     private float highScore;
     public float HighScore
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         maincamera = Camera.main;
         deathScreen.SetActive(false);
         rb2d = GetComponent<Rigidbody2D>();
-        GameMusic.Play();
+        
         Load();
     }
 
@@ -152,13 +152,13 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
+   // void OnCollisionEnter2D(Collision2D collision)
+  //  {
 
-        if (collision.relativeVelocity.y <= 0)
-        {
-            Bounce.Play();
-            LeftRight.SetTrigger("Jumped");
+     //   if (collision.relativeVelocity.y <= 0)
+     //   {
+           // Bounce.Play();
+           // LeftRight.SetTrigger("Jumped");
 
             //    Rigidbody2D rb2D = collision.collider.GetComponent<Rigidbody2D>();
             //    if (rb2D != null)
@@ -179,11 +179,11 @@ public class PlayerMovement : MonoBehaviour
 
             //    }
 
-        }
+        //}
 
 
 
-    }
+    //}
 
     public void Save()
     {

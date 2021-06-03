@@ -9,9 +9,13 @@ public class MenuHandler : MonoBehaviour
 
     public AudioMixer masterAudio;
     public float startAudio;
+    public GameObject MainMenu;
+    public AudioSource GameMusic;
+
     // Start is called before the first frame update
     void Start()
     {
+        GameMusic.Play();
         startAudio = PlayerPrefs.GetFloat("Volume");
     }
 
@@ -33,5 +37,13 @@ public class MenuHandler : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void ChangeVolume(float volume)
+    {
+        masterAudio.SetFloat("MusicVolume", volume);
+       // GameMusic = PlayerPrefs.GetFloat("MusicVolume", volume);
+
+
+     
+    }
 
 }

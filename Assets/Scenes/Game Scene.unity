@@ -644,10 +644,10 @@ RectTransform:
   m_Father: {fileID: 992034711}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1252, y: -108}
-  m_SizeDelta: {x: 404.065, y: 101.0163}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -317, y: -108}
+  m_SizeDelta: {x: 404.06494, y: 101.0163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255679455
 MonoBehaviour:
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.00014295033, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -763,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5699004622443237532, guid: e69533475fc853d4186ef5461041f877, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1476028
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5699004622443237532, guid: e69533475fc853d4186ef5461041f877, type: 3}
       propertyPath: m_LocalPosition.y
@@ -966,7 +966,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704960959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.61, y: -0.35, z: 10}
+  m_LocalPosition: {x: -0.07, y: -0.35, z: 10}
   m_LocalScale: {x: 0.4508052, y: 0.7405823, z: 1}
   m_Children: []
   m_Father: {fileID: 1998078322}
@@ -1040,7 +1040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &721654007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793598016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53049266, y: 1.4771616, z: -7.646373}
+  m_LocalPosition: {x: -0.36, y: 1.4771616, z: -7.646373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1690,6 +1690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterAudio: {fileID: 0}
   startAudio: 0
+  MainMenu: {fileID: 0}
+  GameMusic: {fileID: 0}
 --- !u!4 &1380107010
 Transform:
   m_ObjectHideFlags: 0
@@ -1877,7 +1879,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.8679245, b: 0.3100178, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2421,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3365061137152387635, guid: 6a1000b1b96c75f46b90d5b51409a076, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07
+      value: -0.8204927
       objectReference: {fileID: 0}
     - target: {fileID: 3365061137152387635, guid: 6a1000b1b96c75f46b90d5b51409a076, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2518,7 +2520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5699004622443237532, guid: e69533475fc853d4186ef5461041f877, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: -1.2023972
       objectReference: {fileID: 0}
     - target: {fileID: 5699004622443237532, guid: e69533475fc853d4186ef5461041f877, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2583,7 +2585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021147332055616676, guid: f9f3749b067a5494fa5c5360c586232a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7021147332055616676, guid: f9f3749b067a5494fa5c5360c586232a, type: 3}
       propertyPath: m_LocalPosition.y
